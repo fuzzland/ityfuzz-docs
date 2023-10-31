@@ -11,16 +11,14 @@ When you run ItyFuzz using the CLI, you can include the `--constructor-args` fla
 The format is as follows:
 
 ```bash
-ityfuzz evm\
-    -t 'build/*'\
+ityfuzz evm -t 'build/*'\
     --constructor-args "ContractName:arg1,arg2,...;AnotherContract:arg1,arg2,..;"
 ```
 
 For example, if you have two contracts, `main` and `main2`, both having a `bytes32` and a `uint256` as constructor arguments, you would pass them in like this:
 
 ```bash
-ityfuzz evm\
-    -t 'build/*'\
+ityfuzz evm -t 'build/*'\
     --constructor-args "main:1,0x6100000000000000000000000000000000000000000000000000000000000000;main2:2,0x6200000000000000000000000000000000000000000000000000000000000000;"
 ```
 

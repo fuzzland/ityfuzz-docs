@@ -29,13 +29,10 @@ The contracts are exploitable before block number 35690977. We'll fork the chain
 To conduct an ItyFuzz campaign, run the following command:
 
 ```bash
-ityfuzz\ 
- -t 0x5d6c48f05ad0fde3f64bab50628637d73b1eb0bb,0xbcf6e9d27bf95f3f5eddb93c38656d684317d5b4\ # specify the target contracts
- -o\ # enable onchain fuzzing
- -i\ # detect fund loss
- -f\ # allow attack to get flashloan
- -c POLYGON\ # specify the chain
- --onchain-block-number 35690976\ # fork the chain at block number 35690976
+ityfuzz\
+ -t 0x5d6c48f05ad0fde3f64bab50628637d73b1eb0bb,0xbcf6e9d27bf95f3f5eddb93c38656d684317d5b4\
+ -o -i -f -c POLYGON\
+ --onchain-block-number 35690976\
  --onchain-etherscan-api-key <your etherscan api key> # (Optional) specify your Polygon etherscan api key
 ```
 
