@@ -7,25 +7,25 @@ ItyFuzz supports offchain (local) fuzzing and onchain (fork) fuzzing for EVM and
 To run an onchain fuzzing campaign, specify the target contract and the chain to fork.
 
 ```bash
-ityfuzz evm \
-    -o \ # enable onchain fuzzing
-    -t [TARGET_ADDR] \ # specify the target contract
-    --onchain-block-number [BLOCK] \ # fork the chain at block number [BLOCK]
-    -c [CHAIN_TYPE] \ # specify the chain
+ityfuzz evm\
+    -o\ # enable onchain fuzzing
+    -t [TARGET_ADDR]\ # specify the target contract
+    --onchain-block-number [BLOCK]\ # fork the chain at block number [BLOCK]
+    -c [CHAIN_TYPE]\ # specify the chain
     --onchain-etherscan-api-key [Etherscan API Key] # (Optional) specify your etherscan api key
 ```
 
 For example, to run an onchain fuzzing campaign on Ethereum targeting WETH, run:
 
 ```bash
-ityfuzz evm \
-    -o \
-    -t 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 \ # WETH address
-    --onchain-block-number 0 \ # use the latest block
-    -c ETH \ # fork ETH
+ityfuzz evm\
+    -o\
+    -t 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\ # WETH address
+    --onchain-block-number 0\ # use the latest block
+    -c ETH\ # fork ETH
     --onchain-etherscan-api-key [Etherscan API Key]\ # (Optional) specify your etherscan api key
-    -f \ # (Optional) allow attack to get flashloan
-    -i \ # (Optional) detect fund loss
+    -f\ # (Optional) allow attack to get flashloan
+    -i\ # (Optional) detect fund loss
     -p # (Optional) detect price manipulation attack
 ```
 
@@ -36,11 +36,11 @@ ItyFuzz would pull the ABI of the contract from Etherscan and fuzz it. If ItyFuz
 To run a local fuzzing campaign, specify the target contract (only needs bytecode and ABIs).
 
 ```bash
-ityfuzz evm \
-    -t "[BUILD DIRECTORY GLOB]" \ # specify the targets
-    -f \ # (Optional) allow attack to get flashloan
-    -i \ # (Optional) detect fund loss
-    --concolic \ # (Optional) enable concolic execution
+ityfuzz evm\
+    -t "[BUILD DIRECTORY GLOB]"\ # specify the targets
+    -f\ # (Optional) allow attack to get flashloan
+    -i\ # (Optional) detect fund loss
+    --concolic\ # (Optional) enable concolic execution
     --concolic-caller # (Optional) enable concolic execution to change caller to anyone
 ```
 
