@@ -17,7 +17,7 @@ To conduct an ItyFuzz campaign, run the following command:
 ```bash
 ityfuzz evm\
  -t 0x40eD17221b3B2D8455F4F1a05CAc6b77c5f707e3\
- -o -p -i -f -c BSC\
+ -f -c BSC\
  --onchain-block-number 23695904\
  --onchain-etherscan-api-key <your etherscan api key> # (Optional) specify your BSC etherscan api key
 

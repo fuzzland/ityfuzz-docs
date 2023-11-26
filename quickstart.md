@@ -6,13 +6,11 @@ ItyFuzz supports offchain (local) fuzzing and onchain (fork) fuzzing for EVM and
 
 To run an onchain fuzzing campaign, specify the target contract and the chain to fork.
 
-<pre class="language-bash"><code class="lang-bash"># -o: enable onchain fuzzing
-<strong># -t [TARGET_ADDR]: specify the target contract
+<pre class="language-bash"><code class="lang-bash"><strong># -t [TARGET_ADDR]: specify the target contract
 </strong># --onchain-block-number [BLOCK]: fork the chain at block number [BLOCK]
 # -c [CHAIN_TYPE]: specify the chain
 
 ityfuzz evm\
-    -o\
     -t [TARGET_ADDR]\
     --onchain-block-number [BLOCK]\
     -c [CHAIN_TYPE]\
@@ -22,13 +20,10 @@ ityfuzz evm\
 For example, to run an onchain fuzzing campaign on Ethereum targeting WETH, run:
 
 ```bash
-# -o: enable onchain fuzzing
 # -t [TARGET_ADDR]: specify the target contract
 # --onchain-block-number [BLOCK]: fork the chain at block number [BLOCK]
 # -c [CHAIN_TYPE]: specify the chain
 # -f: (Optional) allow attack to get flashloan
-# -i: (Optional) detect fund loss
-# -p: (Optional) detect price manipulation attack
 
 ityfuzz evm\
     -o\
@@ -36,7 +31,7 @@ ityfuzz evm\
     --onchain-block-number 0\
     -c ETH\
     --onchain-etherscan-api-key [Etherscan API Key]\
-    -f -i -p
+    -f
 ```
 
 ItyFuzz would pull the ABI of the contract from Etherscan and fuzz it. If ItyFuzz encounters an unknown slot in the memory, it will pull the slot from chain RPC. If ItyFuzz encounters calls to an external unknown contract, it will pull the bytecode and ABI of that contract. If its ABI is unavailable, ItyFuzz will decompile and get the ABI.
@@ -48,13 +43,12 @@ To run a local fuzzing campaign, specify the target contract (only needs bytecod
 ```bash
 # -t [BUILD DIRECTORY GLOB]: specify the targets directory
 # -f: (Optional) allow attack to get flashloan
-# -i: (Optional) detect fund loss
 # --concolic: (Optional) enable concolic execution
 # --concolic-caller: (Optional) enable concolic execution to change caller to anyone
 
 ityfuzz evm\
     -t "[BUILD DIRECTORY GLOB]"\
-    -f -i\
+    -f\
     --concolic --concolic-caller
 ```
 
